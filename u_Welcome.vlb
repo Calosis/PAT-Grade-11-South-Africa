@@ -1,0 +1,16 @@
+﻿[pnlNext]
+Coordinates=10,144,58,58
+
+[RelativePanel1]
+Coordinates=203,10,101,58
+
+[stHeading]
+Coordinates=10,212,72,36
+
+[imgBackground]
+Coordinates=314,10,104,58
+Visible=True
+
+[]
+Coordinates=121,10,72,58
+

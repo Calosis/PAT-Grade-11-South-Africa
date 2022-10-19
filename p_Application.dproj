@@ -111,6 +111,17 @@
             <Form>frmDatabaseConnection</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="u_Google2fa.pas"/>
+        <DCCReference Include="u_Base32.pas"/>
+        <DCCReference Include="u_QRCode.pas"/>
+        <DCCReference Include="u_2FAScreen.pas">
+            <Form>frm2FAScreen</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="u_Welcome.pas">
+            <Form>frmWelcome</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
