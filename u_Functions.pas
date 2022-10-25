@@ -14,6 +14,7 @@ type
   public
     class procedure sizeCentre(Form: TForm);
     class procedure makeRound(Control: TWinControl);
+    class function isNumber(Input: String): Boolean;
 
   end;
 
@@ -24,6 +25,26 @@ implementation
 uses u_Application;
 
 // Source - https://stackoverflow.com/users/1062933/please-dont-bully-me-so-lords
+class function TFunctions.isNumber(Input: String): Boolean;
+var
+  iTemp, iStatus: Integer;
+
+begin
+
+  // Check
+  Val(Input, iTemp, iStatus);
+
+  if iStatus = 0 then
+  begin
+    Result := true;
+  end
+  else
+  begin
+    Result := false;
+  end;
+
+end;
+
 class procedure TFunctions.makeRound(Control: TWinControl);
 var
   Rect: TRect;
@@ -41,7 +62,7 @@ begin
 
     InflateRect(Rect, -4, -4);
     Perform(EM_SETRECTNP, 0, lParam(@Rect));
-    SetWindowRgn(Handle, Rgn, True);
+    SetWindowRgn(Handle, Rgn, true);
     Invalidate;
 
   end;

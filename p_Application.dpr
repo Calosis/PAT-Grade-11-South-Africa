@@ -10,7 +10,9 @@ uses
   u_Base32 in 'u_Base32.pas',
   u_QRCode in 'u_QRCode.pas',
   u_2FAScreen in 'u_2FAScreen.pas' {frm2FAScreen},
-  u_Welcome in 'u_Welcome.pas' {frmWelcome};
+  u_Welcome in 'u_Welcome.pas' {frmWelcome},
+  u_TManage in 'u_TManage.pas' {frmTManage},
+  u_PManage in 'u_PManage.pas' {frmPManage};
 
 {$R *.res}
 
@@ -22,6 +24,8 @@ begin
   Application.CreateForm(TfrmDatabaseConnection, frmDatabaseConnection);
   Application.CreateForm(Tfrm2FAScreen, frm2FAScreen);
   Application.CreateForm(TfrmWelcome, frmWelcome);
+  Application.CreateForm(TfrmTManage, frmTManage);
+  Application.CreateForm(TfrmPManage, frmPManage);
   Application.Run;
 
 end.

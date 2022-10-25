@@ -44,7 +44,7 @@ implementation
 {$R *.dfm}
 
 uses u_Register, u_DatabaseManage, u_Functions, u_DatabaseConnection,
-  u_Google2fa, u_2FAScreen, u_Login;
+  u_Google2fa, u_2FAScreen, u_Welcome;
 
 procedure TfrmApplication.btnLoginClick(Sender: TObject);
 var
@@ -196,7 +196,7 @@ begin
 
     // Show.
     frmApplication.Hide;
-    frmLogin.Show;
+    frmWelcome.Show;
 
     Exit;
 
@@ -256,7 +256,7 @@ begin
 
     // Show.
     frmApplication.Hide;
-    frmLogin.Show;
+    frmWelcome.Show;
 
     Exit;
 
@@ -352,5 +352,3 @@ begin
 end;
 
 end.
-end.
-
