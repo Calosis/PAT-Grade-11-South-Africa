@@ -49,9 +49,6 @@ var
 
 begin
 
-  // Reset.
-  resetAll;
-
   // Grab.
   sFirstname := edtName.Text;
   sLastname := edtSurname.Text;
@@ -115,19 +112,29 @@ begin
   // Yes, we can store this.
   iAge := StrToInt(edtAge.Text);
 
-  if (TFunctions.isNumber(edtWeight.Text) = false) then
-  begin
-
-    edtWeight.Font.Color := clRed;
-    edtWeight.Focused;
-
-    ShowMessage('Please enter a number.');
-    Exit;
-
-  end;
-
   // Yessir
   rWeight := StrToFloat(edtWeight.Text);
+
+  // Post to database.
+  frmDatabaseConnection.tblTournamentUsers.Insert;
+
+  frmDatabaseConnection.tblTournamentUsers['T_Firstname'] := sFirstname;
+  frmDatabaseConnection.tblTournamentUsers['T_Lastname'] := sLastname;
+  frmDatabaseConnection.tblTournamentUsers.Post;
+
+  // Relation.
+  frmDatabaseConnection.tblTournamentUserStats.Insert;
+
+  frmDatabaseConnection.tblTournamentUserStats['U_Age'] := iAge;
+  frmDatabaseConnection.tblTournamentUserStats['U_Weight'] := rWeight;
+  frmDatabaseConnection.tblTournamentUserStats['U_Tournament'] := cmbList.Text;
+
+  frmDatabaseConnection.tblTournamentUserStats.Post;
+
+  // Notify.
+  ShowMessage('Added user.');
+
+  resetAll;
 
 end;
 
@@ -181,7 +188,6 @@ begin
     begin
 
       cmbList.Items.Add(sTemp);
-      frmDatabaseConnection.tblTournaments.Next;
 
     end;
 

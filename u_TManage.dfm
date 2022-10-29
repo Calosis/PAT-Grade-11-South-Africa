@@ -7944,6 +7944,7 @@ object frmTManage: TfrmTManage
       Anchors = []
       Caption = 'Start Tournament'
       TabOrder = 4
+      OnClick = btnStartClick
     end
     object dbUsers: TDBGrid
       Left = 311

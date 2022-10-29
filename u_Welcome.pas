@@ -85,6 +85,9 @@ begin
 
   ShowMessage('Tournament Created!');
 
+  // Update data.
+  frmDatabaseConnection.tblTournaments.Refresh;
+
 end;
 
 procedure TfrmWelcome.btnLogoutClick(Sender: TObject);

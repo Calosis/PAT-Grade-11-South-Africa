@@ -49,7 +49,7 @@ uses u_Register, u_DatabaseManage, u_Functions, u_DatabaseConnection,
 procedure TfrmApplication.btnLoginClick(Sender: TObject);
 var
   bFound, bAuth, b2FASetup, bFirstSet: Boolean;
-  sUsernameT, sPasswordT: String;
+  sUsernameT, sPasswordT, sTemp: String;
   iOTPUser: Integer;
 begin
 
@@ -222,7 +222,18 @@ begin
   end;
 
   // Grab OTP from user.
-  iOTPUser := StrToInt(InputBox('2FA:', 'OTP:', ''));
+  sTemp := InputBox('2FA:', 'OTP:', '');
+
+  if TFunctions.isNumber(sTemp) = false then
+  begin
+
+    ShowMessage('Please enter a number.');
+    Exit;
+
+  end;
+
+  // Safe to store in int.
+  iOTPUser := StrToInt(sTemp);
 
   // Keep going until the person enters the otp.
   while (iOTPUser <> iOTP) do
@@ -239,7 +250,20 @@ begin
 
       ShowMessage('OTP: ' + IntToStr(iOTP));
       // Try get OTP again.
-      iOTPUser := StrToInt(InputBox('2FA:', 'OTP:', ''));
+
+      // Grab OTP from user.
+      sTemp := InputBox('2FA:', 'OTP:', '');
+
+      if TFunctions.isNumber(sTemp) = false then
+      begin
+
+        ShowMessage('Please enter a number.');
+        Exit;
+
+      end;
+
+      // Safe to store in int.
+      iOTPUser := StrToInt(sTemp);
 
     end;
   end;

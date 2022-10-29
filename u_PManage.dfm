@@ -2,7 +2,7 @@ object frmPManage: TfrmPManage
   Left = 0
   Top = 0
   Caption = 'Add Participants'
-  ClientHeight = 592
+  ClientHeight = 591
   ClientWidth = 910
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -7949,6 +7949,8 @@ object frmPManage: TfrmPManage
         Width = 89
         Height = 33
         Caption = '<---'
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 0
         OnClick = btnBackClick
       end
@@ -7973,6 +7975,7 @@ object frmPManage: TfrmPManage
       Top = 360
       Width = 139
       Height = 57
+      Hint = 'Add participant to database'
       Anchors = []
       Caption = 'Add Participant'
       Glyph.Data = {
@@ -8107,6 +8110,8 @@ object frmPManage: TfrmPManage
         9871244E9396244F938E27529953000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000}
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 2
       OnClick = btnAddClick
     end
@@ -8115,7 +8120,10 @@ object frmPManage: TfrmPManage
       Top = 272
       Width = 145
       Height = 21
+      Hint = 'Tournament selection'
       Anchors = []
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 3
     end
     object edtName: TLabeledEdit

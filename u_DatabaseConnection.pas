@@ -16,7 +16,7 @@ type
     { Public declarations }
 
     conApplication: TADOConnection;
-    tblAccounts, tblActiveRound, tblTournaments, tblTournamentUsers: TADOTable;
+    tblAccounts, tblActiveRound, tblTournaments, tblTournamentUsers, tblTournamentUserStats : TADOTable;
     dsrAccounts, dsrActiveRound, dsrTournaments, dsrTournamentUsers
       : TDataSource;
 
@@ -24,7 +24,6 @@ type
 
 var
   frmDatabaseConnection: TfrmDatabaseConnection;
-  dbManage: TfrmDatabaseConnection;
 
 implementation
 
@@ -40,6 +39,7 @@ begin
   tblActiveRound := TADOTable.Create(frmDatabaseConnection);
   tblTournaments := TADOTable.Create(frmDatabaseConnection);
   tblTournamentUsers := TADOTable.Create(frmDatabaseConnection);
+  tblTournamentUserStats := TADOTable.Create(frmDatabaseConnection);
 
   dsrAccounts := TDataSource.Create(frmDatabaseConnection);
   dsrActiveRound := TDataSource.Create(frmDatabaseConnection);
@@ -68,7 +68,10 @@ begin
   tblTournaments.TableName := 'tblTournaments';
 
   tblTournamentUsers.Connection := conApplication;
-  tblTournamentUsers.TableName := 'tblTournamentUsers';
+  tblTournamentUsers.TableName := 'tblTUsers';
+
+  tblTournamentUserStats.Connection := conApplication;
+  tblTournamentUserStats.TableName := 'tblTUserStats';
 
   // Set dataset.
   dsrAccounts.DataSet := tblAccounts;
@@ -80,6 +83,7 @@ begin
   tblActiveRound.Open;
   tblTournaments.Open;
   tblTournamentUsers.Open;
+  tblTournamentUserStats.Open;
 
 end;
 

@@ -23,6 +23,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure cmbListChange(Sender: TObject);
+    procedure btnStartClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,6 +45,21 @@ begin
   // Go back.
   frmTManage.Hide;
   frmWelcome.Show;
+
+end;
+
+procedure TfrmTManage.btnStartClick(Sender: TObject);
+var
+  sSelected: String;
+
+begin
+
+  // Get selected tournament.
+  sSelected := cmbList.Text;
+
+
+
+
 
 end;
 
@@ -91,7 +107,6 @@ begin
     begin
 
       cmbList.Items.Add(sTemp);
-      frmDatabaseConnection.tblTournaments.Next;
 
     end;
 
