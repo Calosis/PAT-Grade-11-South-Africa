@@ -130,6 +130,14 @@
             <Form>frmPManage</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="u_ATournament.pas">
+            <Form>frmATournament</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="u_LTournament.pas">
+            <Form>frmPastLoad</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

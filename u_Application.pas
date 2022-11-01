@@ -198,6 +198,11 @@ begin
     frmApplication.Hide;
     frmWelcome.Show;
 
+    // Update last login data for user.
+    frmDatabaseConnection.tblAccounts.Edit;
+    frmDatabaseConnection.tblAccounts['U_LastLogin'] := Date;
+    frmDatabaseConnection.tblAccounts.Post;
+
     Exit;
 
   end;
@@ -281,6 +286,11 @@ begin
     // Show.
     frmApplication.Hide;
     frmWelcome.Show;
+
+    // Update last login data for user.
+    frmDatabaseConnection.tblAccounts.Edit;
+    frmDatabaseConnection.tblAccounts['U_LastLogin'] := Date;
+    frmDatabaseConnection.tblAccounts.Post;
 
     Exit;
 

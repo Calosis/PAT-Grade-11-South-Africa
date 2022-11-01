@@ -12,7 +12,9 @@ uses
   u_2FAScreen in 'u_2FAScreen.pas' {frm2FAScreen},
   u_Welcome in 'u_Welcome.pas' {frmWelcome},
   u_TManage in 'u_TManage.pas' {frmTManage},
-  u_PManage in 'u_PManage.pas' {frmPManage};
+  u_PManage in 'u_PManage.pas' {frmPManage},
+  u_ATournament in 'u_ATournament.pas' {frmATournament},
+  u_LTournament in 'u_LTournament.pas' {frmPastLoad};
 
 {$R *.res}
 
@@ -26,6 +28,8 @@ begin
   Application.CreateForm(TfrmWelcome, frmWelcome);
   Application.CreateForm(TfrmTManage, frmTManage);
   Application.CreateForm(TfrmPManage, frmPManage);
+  Application.CreateForm(TfrmATournament, frmATournament);
+  Application.CreateForm(TfrmPastLoad, frmPastLoad);
   Application.Run;
 
 end.

@@ -25,6 +25,10 @@ type
     procedure btnCreateTClick(Sender: TObject);
     procedure btnManageTClick(Sender: TObject);
     procedure btnTournamentUsersClick(Sender: TObject);
+
+    // Fix for multi forums.
+    procedure CreateParams(var Params: TCreateParams); override;
+    procedure btnPastTClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +42,8 @@ implementation
 
 {$R *.dfm}
 
-uses u_Functions, u_Application, u_DatabaseConnection, u_TManage, u_PManage;
+uses u_Functions, u_Application, u_DatabaseConnection, u_TManage, u_PManage,
+  u_LTournament;
 
 procedure TfrmWelcome.btnCreateTClick(Sender: TObject);
 var
@@ -111,6 +116,15 @@ begin
 
 end;
 
+procedure TfrmWelcome.btnPastTClick(Sender: TObject);
+begin
+
+  // Move.
+  frmWelcome.Hide;
+  frmPastLoad.Show;
+
+end;
+
 procedure TfrmWelcome.btnTournamentUsersClick(Sender: TObject);
 begin
 
@@ -118,6 +132,16 @@ begin
   frmWelcome.Hide;
   frmPManage.Show;
 
+end;
+
+procedure TfrmWelcome.CreateParams(var Params: TCreateParams);
+begin
+  inherited;
+
+  // Set style sheet so windows knows its another "window".
+  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+
+  Params.WndParent := GetDesktopWindow;
 end;
 
 procedure TfrmWelcome.FormClose(Sender: TObject; var Action: TCloseAction);

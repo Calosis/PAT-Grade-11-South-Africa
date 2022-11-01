@@ -16,9 +16,11 @@ type
     { Public declarations }
 
     conApplication: TADOConnection;
-    tblAccounts, tblActiveRound, tblTournaments, tblTournamentUsers, tblTournamentUserStats : TADOTable;
+    tblAccounts, tblActiveRound, tblTournaments, tblTournamentUsers,
+      tblTournamentUserStats: TADOTable;
     dsrAccounts, dsrActiveRound, dsrTournaments, dsrTournamentUsers
       : TDataSource;
+    qrQuery: TADOQuery;
 
   end;
 
@@ -44,6 +46,8 @@ begin
   dsrAccounts := TDataSource.Create(frmDatabaseConnection);
   dsrActiveRound := TDataSource.Create(frmDatabaseConnection);
   dsrTournamentUsers := TDataSource.Create(frmDatabaseConnection);
+
+  qrQuery := TADOQuery.Create(frmDatabaseConnection);
 
   // Ready connection string.
   conApplication.Close;
@@ -72,6 +76,8 @@ begin
 
   tblTournamentUserStats.Connection := conApplication;
   tblTournamentUserStats.TableName := 'tblTUserStats';
+
+  qrQuery.Connection := conApplication;
 
   // Set dataset.
   dsrAccounts.DataSet := tblAccounts;

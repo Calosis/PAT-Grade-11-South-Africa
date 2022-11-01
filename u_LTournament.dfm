@@ -1,9 +1,9 @@
-object frmTManage: TfrmTManage
+object frmPastLoad: TfrmPastLoad
   Left = 0
   Top = 0
-  Caption = 'Tournament Management'
-  ClientHeight = 595
-  ClientWidth = 877
+  Caption = 'Load tournament'
+  ClientHeight = 597
+  ClientWidth = 904
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,7 +11,6 @@ object frmTManage: TfrmTManage
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -91,7 +90,7 @@ object frmTManage: TfrmTManage
         AlignVerticalCenterWithPanel = False
       end
       item
-        Control = btnStart
+        Control = btnLoad
         AlignBottomWithPanel = False
         AlignHorizontalCenterWithPanel = False
         AlignLeftWithPanel = False
@@ -100,25 +99,7 @@ object frmTManage: TfrmTManage
         AlignVerticalCenterWithPanel = False
       end
       item
-        Control = dbgInfo
-        AlignBottomWithPanel = False
-        AlignHorizontalCenterWithPanel = False
-        AlignLeftWithPanel = False
-        AlignRightWithPanel = False
-        AlignTopWithPanel = False
-        AlignVerticalCenterWithPanel = False
-      end
-      item
-        Control = btnDelete
-        AlignBottomWithPanel = False
-        AlignHorizontalCenterWithPanel = False
-        AlignLeftWithPanel = False
-        AlignRightWithPanel = False
-        AlignTopWithPanel = False
-        AlignVerticalCenterWithPanel = False
-      end
-      item
-        Control = st1
+        Control = rtOut
         AlignBottomWithPanel = False
         AlignHorizontalCenterWithPanel = False
         AlignLeftWithPanel = False
@@ -7922,12 +7903,12 @@ object frmTManage: TfrmTManage
       end
     end
     object stHeading: TStaticText
-      Left = 19
+      Left = 51
       Top = 16
-      Width = 278
+      Width = 198
       Height = 31
       Anchors = []
-      Caption = 'Tournament Management'
+      Caption = 'Past Tournaments'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -24
@@ -7952,49 +7933,33 @@ object frmTManage: TfrmTManage
       Height = 21
       Anchors = []
       TabOrder = 3
-      OnChange = cmbListChange
     end
-    object btnStart: TBitBtn
+    object btnLoad: TBitBtn
       Left = 319
       Top = 88
       Width = 121
       Height = 41
       Anchors = []
-      Caption = 'Start Tournament'
+      Caption = 'Load Tournament'
       TabOrder = 4
-      OnClick = btnStartClick
+      OnClick = btnLoadClick
     end
-    object dbgInfo: TDBGrid
-      Left = 311
-      Top = 264
-      Width = 562
-      Height = 185
+    object rtOut: TRichEdit
+      Left = 319
+      Top = 184
+      Width = 570
+      Height = 369
       Anchors = []
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Lines.Strings = (
+        'rtOut')
+      ParentFont = False
       TabOrder = 5
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-    end
-    object btnDelete: TButton
-      Left = 311
-      Top = 472
-      Width = 75
-      Height = 25
-      Anchors = []
-      Caption = 'Delete Entry'
-      TabOrder = 6
-      OnClick = btnDeleteClick
-    end
-    object st1: TStaticText
-      Left = 311
-      Top = 241
-      Width = 64
-      Height = 17
-      Anchors = []
-      Caption = 'Participants:'
-      TabOrder = 7
+      Zoom = 100
     end
   end
 end

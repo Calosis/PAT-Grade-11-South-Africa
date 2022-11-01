@@ -15,6 +15,7 @@ type
     class procedure sizeCentre(Form: TForm);
     class procedure makeRound(Control: TWinControl);
     class function isNumber(Input: String): Boolean;
+    class function whoIs(Input: Integer): String;
 
   end;
 
@@ -22,7 +23,7 @@ implementation
 
 { TFunctions }
 
-uses u_Application;
+uses u_Application, u_DatabaseConnection;
 
 // Source - https://stackoverflow.com/users/1062933/please-dont-bully-me-so-lords
 class function TFunctions.isNumber(Input: String): Boolean;
@@ -75,6 +76,29 @@ begin
   // Centre window based on monitor size.
   Form.Left := (Form.Monitor.Width - Form.Width) div 2;
   Form.Top := (Form.Monitor.Height - Form.Height) div 2;
+
+end;
+
+class function TFunctions.whoIs(Input: Integer): String;
+begin
+
+  frmDatabaseConnection.tblTournamentUsers.First;
+
+  while NOT(frmDatabaseConnection.tblTournamentUsers.Eof) do
+  begin
+
+    if (Input = frmDatabaseConnection.tblTournamentUsers['T_ID']) then
+    begin
+
+      Result := frmDatabaseConnection.tblTournamentUsers['T_FirstName'] + ' ' +
+        frmDatabaseConnection.tblTournamentUsers['T_LastName'];
+      Exit;
+
+    end;
+
+    frmDatabaseConnection.tblTournamentUsers.Next;
+
+  end;
 
 end;
 

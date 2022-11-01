@@ -25,6 +25,9 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnBackClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
+
+    // Fix for multi forums.
+    procedure CreateParams(var Params: TCreateParams); override;
     procedure resetAll();
   private
     { Private declarations }
@@ -48,6 +51,8 @@ var
   rWeight: Real;
 
 begin
+
+  // TO-DO: Check for duplicates of same people in tournament.
 
   // Grab.
   sFirstname := edtName.Text;
@@ -120,6 +125,7 @@ begin
 
   frmDatabaseConnection.tblTournamentUsers['T_Firstname'] := sFirstname;
   frmDatabaseConnection.tblTournamentUsers['T_Lastname'] := sLastname;
+  frmDatabaseConnection.tblTournamentUsers['T_Tournament'] := cmbList.Text;
   frmDatabaseConnection.tblTournamentUsers.Post;
 
   // Relation.
@@ -127,7 +133,6 @@ begin
 
   frmDatabaseConnection.tblTournamentUserStats['U_Age'] := iAge;
   frmDatabaseConnection.tblTournamentUserStats['U_Weight'] := rWeight;
-  frmDatabaseConnection.tblTournamentUserStats['U_Tournament'] := cmbList.Text;
 
   frmDatabaseConnection.tblTournamentUserStats.Post;
 
@@ -148,7 +153,7 @@ begin
   // Reset.
   resetAll;
 
-  cmbList.Items.Clear;
+  cmbList.Clear;
 
 end;
 
@@ -172,6 +177,7 @@ begin
 
   // Centre
   TFunctions.sizeCentre(frmPManage);
+
 
   // Grab all tournaments.
 
@@ -212,6 +218,16 @@ begin
   edtAge.Clear;
   edtWeight.Clear;
 
+end;
+
+procedure TfrmPManage.CreateParams(var Params: TCreateParams);
+begin
+  inherited;
+
+  // Set style sheet so windows knows its another "window".
+  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+
+  Params.WndParent := GetDesktopWindow;
 end;
 
 end.

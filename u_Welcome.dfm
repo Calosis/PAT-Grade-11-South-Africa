@@ -8800,6 +8800,7 @@ object frmWelcome: TfrmWelcome
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000}
       TabOrder = 2
+      OnClick = btnPastTClick
     end
     object btnManageT: TBitBtn
       Left = 342
